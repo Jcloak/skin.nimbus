@@ -265,12 +265,12 @@
 				</control>
 				<control type="image">
 					<left>21</left>
-					<top>267</top>
+					<top>207</top>
 					<width>234</width>
-					<height>97</height>
-					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
+					<height>157</height>
+					<texture>overlays/overlayfade8.png</texture>
 					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0) | [$EXP[isTVShow] | $EXP[isSeason]]]</visible>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + [[!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | Integer.IsGreater(Container($PARAM[id]).ListItem.Property(UnwatchedEpisodes),1)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<control type="label">
@@ -283,6 +283,18 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
 					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="label">
+					<left>-35</left>
+					<top>329</top>
+					<width>280</width>
+					<label>$INFO[ListItem.Property(UnwatchedEpisodes)] remaining</label>
+					<font>font20_title</font>
+					<textcolor>artwork_dim</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<align>right</align>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + $EXP[isEpisode] + Integer.IsGreater(Container($PARAM[id]).ListItem.Property(UnwatchedEpisodes),1) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>
