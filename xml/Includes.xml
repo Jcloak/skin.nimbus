@@ -1707,9 +1707,12 @@
 			<textoffsety>6</textoffsety>
 			<font>FlixPanelIcon</font>
 			<textcolor>unfocused_text</textcolor>
+			<!--temporary fix until Kodi nightly fixes alttexture bug
 			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
 			<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
-			<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+			<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>-->
+			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon.png</texturenofocus>
+			<usealttexture>false</usealttexture>
 			<label>[LIGHT]$PARAM[flixlabel][/LIGHT]</label>
 		</control>
 	</include>
