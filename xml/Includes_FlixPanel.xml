@@ -70,11 +70,11 @@
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]] +!EXP[isEpisode]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)"/>
+						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + !$EXP[isEpisode]"/>
 						<param name="flixlabel" value="$VAR[GenreVar]"/>
 					</include>
 					<include content="FlixInfoIcon">
@@ -94,8 +94,13 @@
 						<param name="flixlabel" value="$VAR[StatusVar]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isSeason]]"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isSeason] | [$EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))] ]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Property(episode_type))"/>
+						<param name="color" value="$VAR[EpisodeTypeColor]"/>
+						<param name="flixlabel" value="$VAR[EpisodeType]"/>
 					</include>
 					<control type="group">
 						<control type="image">
