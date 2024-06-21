@@ -2,7 +2,7 @@
 <includes>
 	<include name="FlixPanel">
 		<control type="group">
-			<visible>[Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [Window.IsVisible(Home) | Window.IsVisible(1121)]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]</visible>
+			<visible>[String.IsEmpty(Window.Property(WidgetAnimationActive)) + [Window.IsVisible(Home) | Window.IsVisible(1121)]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]</visible>
 			<left>50</left>
 			<width>785</width>
 			<top>45</top>
@@ -70,7 +70,7 @@
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]] +!EXP[isEpisode]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]] + !$EXP[isEpisode]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
 					</include>
 					<include content="FlixInfoIcon">

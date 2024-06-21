@@ -210,20 +210,9 @@
 					<top>-7</top>
 					<width>270</width>
 					<height>270</height>
-					<texture diffuse="masks/addons.png" colordiffuse="focused_text" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>scale</aspectratio>
 					<bordersize>20</bordersize>
-					<visible>!ListItem.IsParentFolder + $PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>-7</top>
-					<width>270</width>
-					<height>270</height>
-					<texture diffuse="masks/addons.png" colordiffuse="unfocused_text" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio>scale</aspectratio>
-					<bordersize>20</bordersize>
-					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+					<!--<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>-->
 				</control>
 			</control>
 			<control type="group">
@@ -270,7 +259,7 @@
 					<height>157</height>
 					<texture>overlays/overlayfade8.png</texture>
 					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + [[!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | Integer.IsGreater(Container($PARAM[id]).ListItem.Property(UnwatchedEpisodes),1)]</visible>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTVShow]] + [[!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | Integer.IsGreater(Container($PARAM[id]).ListItem.Property(UnwatchedEpisodes),1)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<control type="label">

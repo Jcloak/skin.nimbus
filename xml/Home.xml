@@ -6,7 +6,7 @@
 	<onload>Skin.SetString(navigation_delay, true)</onload>
 	<onload>Skin.TimerStart(navigation_timer)</onload>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
-  <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
+  	<onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
 	<onunload>Skin.SetString(navigation_delay, true)</onunload>

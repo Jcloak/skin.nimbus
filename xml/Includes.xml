@@ -1675,7 +1675,7 @@
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
 			<!-- <visible>!Player.HasMedia + !String.IsEmpty(ListItem.Art(fanart)) + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [[Window.IsVisible(Home) | Window.IsVisible(1121)] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible> -->
 			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
-			<visible>[[Window.IsVisible(Home) | Window.IsVisible(1121)] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)] | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
+			<visible>[[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window.Property(WidgetAnimationActive))] | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
 		</control>
 	</include>
 	
